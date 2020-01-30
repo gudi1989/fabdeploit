@@ -14,7 +14,7 @@ setup(
     package_data = {
     },
     install_requires = [
-        'fabric >=1.4',
+        'Fabric3==1.14.post1',
         'GitPython >=2.0.6',
     ],
     classifiers=[
