@@ -15,7 +15,7 @@ def _git_raw_write_object(repo, obj):
     try:
         from cStringIO import StringIO
     except ImportError:
-        from StringIO import StringIO
+        from io import StringIO
 
     if obj.__class__.type == git.Blob.type:
         absfilepath = os.path.join(repo.working_tree_dir, obj.path)
@@ -211,7 +211,7 @@ class Git(BaseCommandUtil):
         if actor is None:
             actor = self.release_author
         if actor:
-            if isinstance(actor, basestring):
+            if isinstance(actor, str):
                 actor = git.Actor._from_string(actor)
         else:
             cr = self._get_local_repo().config_reader()
